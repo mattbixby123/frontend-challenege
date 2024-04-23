@@ -5,10 +5,10 @@ import { InputCheckboxComponent } from "./types"
 export const InputCheckbox: InputCheckboxComponent = ({ id, checked = true, disabled, onChange }) => {
   const inputRef = useRef<HTMLInputElement>(null); //Specify the type for useRef
 
-  const handleChange = () => {
-    const currentValue = inputRef.current?.checked || false; //ensure null safety
-    onChange(!currentValue);
-  }
+  // const handleChange = () => {
+  //   const currentValue = inputRef.current?.checked || false; //ensure null safety
+  //   onChange(!currentValue);
+  // }
 
   return (
     <div className="RampInputCheckbox--container">
@@ -25,7 +25,7 @@ export const InputCheckbox: InputCheckboxComponent = ({ id, checked = true, disa
         className="RampInputCheckbox--input"
         checked={checked}
         disabled={disabled}
-        onChange={handleChange}
+        onChange={() => onChange(!checked)}
         ref={inputRef}
       />
     </div>

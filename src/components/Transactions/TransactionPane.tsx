@@ -30,7 +30,7 @@ export const TransactionPane: TransactionPaneComponent = ({
           })
           console.log('Before update - approved:', approved);
           setApproved(newValue)
-          console.log('After update - approved:', newValue);
+          console.log('After update - approved:', transaction.approved);
         }}
       />
     </div>
