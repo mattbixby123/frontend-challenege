@@ -70,7 +70,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 1: Select dropdown doesn't scroll with rest of the page
 
-- [ ] Bug solved ?
+- [x] Bug solved ?
 
 **How to reproduce:**
 
@@ -86,7 +86,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 2: Approve checkbox not working
 
-- [ ] Bug solved ?
+- [x] Bug solved ?
 
 **How to reproduce:**
 
@@ -100,7 +100,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 3: Cannot select _All Employees_ after selecting an employee
 
-- [ ] Bug solved ?
+- [x] Bug solved ?
 
 **How to reproduce:**
 
