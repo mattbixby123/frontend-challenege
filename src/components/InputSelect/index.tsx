@@ -21,11 +21,15 @@ export function InputSelect<TItem>({
   const onChange = useCallback<InputSelectOnChange<TItem>>(
     (selectedItem) => {
       if (selectedItem === null) {
-        return
+        return;
       }
 
-      consumerOnChange(selectedItem)
-      setSelectedValue(selectedItem)
+      setSelectedValue(selectedItem) // Update the selected value locally
+
+      // Determine the value to be passed to the consumer based on the selected item
+      const valueToPass = selectedItem === "all" ? null : selectedItem;
+
+      consumerOnChange(valueToPass)
     },
     [consumerOnChange]
   )

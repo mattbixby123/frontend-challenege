@@ -30,20 +30,21 @@ export function App() {
   }, [employeeUtils, paginatedTransactionsUtils, transactionsByEmployeeUtils])
 
   const loadTransactionsByEmployee = useCallback(
-    async (employeeId: string) => {
-      // Check if employeeId is null or represents "all employees"
-      if (employeeId === null || employeeId === "all") {
-        // Fetch all transactions
-        await paginatedTransactionsUtils.fetchAll();
-      } else {
-      // Fetch transactions by specific employee
-      paginatedTransactionsUtils.invalidateData()
-      await transactionsByEmployeeUtils.fetchById(employeeId)
-      }
+    async (employeeId: string | null) => {
+       setIsLoading(true);
+       paginatedTransactionsUtils.invalidateData();
+        // the below conditional statement will take the [empty string] employeeId passed by All employees, and solves bug #3
+       if (!employeeId || employeeId === "all") {
+         await paginatedTransactionsUtils.fetchAll();
+       } else {
+         await transactionsByEmployeeUtils.fetchById(employeeId);
+       }
+       setIsLoading(false);
     },
     [paginatedTransactionsUtils, transactionsByEmployeeUtils]
-  )
+   );
 
+   
   useEffect(() => {
     if (employees === null && !employeeUtils.loading) {
       loadAllTransactions()
