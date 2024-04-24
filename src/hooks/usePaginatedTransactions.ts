@@ -18,12 +18,20 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
     )
 
     setPaginatedTransactions((previousResponse) => {
-      if (response === null || previousResponse === null) {
-        return response
+      if (response === null) {
+        return previousResponse; // if there is no new data, we will keep previous data
+      }
+          // if there is no previous data, we set the new data
+      if (previousResponse === null) {
+        return response;
       }
 
-      return { data: response.data, nextPage: response.nextPage }
-    })
+      // we must then add the logic for appending new transactions to the existing ones
+      return {
+        data: [...previousResponse.data, ...response.data],
+        nextPage: response.nextPage,
+      };
+    });
   }, [fetchWithCache, paginatedTransactions])
 
   const invalidateData = useCallback(() => {

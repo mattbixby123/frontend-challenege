@@ -117,7 +117,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 4: Clicking on View More button not showing correct data
 
-- [ ] Bug solved ?
+- [x] Bug solved ?
 
 **How to reproduce:**
 
