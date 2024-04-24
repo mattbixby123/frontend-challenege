@@ -31,8 +31,15 @@ export function App() {
 
   const loadTransactionsByEmployee = useCallback(
     async (employeeId: string) => {
+      // Check if employeeId is null or represents "all employees"
+      if (employeeId === null || employeeId === "all") {
+        // Fetch all transactions
+        await paginatedTransactionsUtils.fetchAll();
+      } else {
+      // Fetch transactions by specific employee
       paginatedTransactionsUtils.invalidateData()
       await transactionsByEmployeeUtils.fetchById(employeeId)
+      }
     },
     [paginatedTransactionsUtils, transactionsByEmployeeUtils]
   )

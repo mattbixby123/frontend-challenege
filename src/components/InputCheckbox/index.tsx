@@ -3,19 +3,20 @@ import { useRef } from "react"
 import { InputCheckboxComponent } from "./types"
 
 export const InputCheckbox: InputCheckboxComponent = ({ id, checked = true, disabled, onChange }) => {
+  const inputId = `RampInputCheckbox-${id}`;
   const inputRef = useRef<HTMLInputElement>(null); //Specify the type for useRef
 
   return (
-    <div className="RampInputCheckbox--container">
+    <div className="RampInputCheckbox--container" data-testid={inputId}>
       <label
-        htmlFor={id.toString()} // Convert id to string explicitly
+        htmlFor={inputId} //
         className={classNames("RampInputCheckbox--label", {
           "RampInputCheckbox--label-checked": checked,
           "RampInputCheckbox--label-disabled": disabled,
         })}
       />
       <input
-        id={id.toString()} // Convert id to string explicitly
+        id={inputId} //
         type="checkbox"
         className="RampInputCheckbox--input"
         checked={checked}
