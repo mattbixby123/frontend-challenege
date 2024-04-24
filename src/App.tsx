@@ -9,10 +9,11 @@ import { EMPTY_EMPLOYEE } from "./utils/constants"
 import { Employee } from "./utils/types"
 
 export function App() {
-  const { data: employees, ...employeeUtils } = useEmployees()
-  const { data: paginatedTransactions, ...paginatedTransactionsUtils } = usePaginatedTransactions()
-  const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } = useTransactionsByEmployee()
-  const [isLoading, setIsLoading] = useState(false)
+  const { data: employees, ...employeeUtils } = useEmployees();
+  const { data: paginatedTransactions, ...paginatedTransactionsUtils } = usePaginatedTransactions();
+  const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } = useTransactionsByEmployee();
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const transactions = useMemo(
     () => paginatedTransactions?.data ?? transactionsByEmployee ?? null,
@@ -47,13 +48,13 @@ export function App() {
    
    useEffect(() => {
     if (employees !== null && !employeeUtils.loading) {
-      setIsLoading(false); // Stop showing loading indicator
+      setIsLoading(false);
     } else if (employees === null && !employeeUtils.loading) {
       loadAllTransactions();
     }
   }, [employeeUtils.loading, employees, loadAllTransactions]);
   
-
+  console.log("Transactions:", transactions);
   return (
     <Fragment>
       <main className="MainContainer">
@@ -84,8 +85,8 @@ export function App() {
 
         <div className="RampGrid">
           <Transactions transactions={transactions} />
-
-          {transactions !== null && (
+          
+          {transactions !== null && (!transactionsByEmployee && paginatedTransactions?.nextPage !== null) && (
             <button
               className="RampButton"
               disabled={paginatedTransactionsUtils.loading}
