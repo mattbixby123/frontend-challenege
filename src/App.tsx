@@ -45,11 +45,14 @@ export function App() {
    );
 
    
-  useEffect(() => {
-    if (employees === null && !employeeUtils.loading) {
-      loadAllTransactions()
+   useEffect(() => {
+    if (employees !== null && !employeeUtils.loading) {
+      setIsLoading(false); // Stop showing loading indicator
+    } else if (employees === null && !employeeUtils.loading) {
+      loadAllTransactions();
     }
-  }, [employeeUtils.loading, employees, loadAllTransactions])
+  }, [employeeUtils.loading, employees, loadAllTransactions]);
+  
 
   return (
     <Fragment>

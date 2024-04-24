@@ -70,7 +70,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 1: Select dropdown doesn't scroll with rest of the page
 
-- [x] Bug solved ?
+- [x] Bug solved
 
 **How to reproduce:**
 
@@ -86,7 +86,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 2: Approve checkbox not working
 
-- [x] Bug solved ?
+- [x] Bug solved
 
 **How to reproduce:**
 
@@ -100,7 +100,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 3: Cannot select _All Employees_ after selecting an employee
 
-- [x] Bug solved ?
+- [x] Bug solved
 
 **How to reproduce:**
 
@@ -117,7 +117,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 4: Clicking on View More button not showing correct data
 
-- [x] Bug solved ?
+- [x] Bug solved
 
 **How to reproduce:**
 
@@ -132,7 +132,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 # Bug 5: Employees filter not available during loading more data
 
-- [ ] Bug solved ?
+- [x] Bug solved
 
 _This bug has 2 wrong behaviors that will be fixed with the same solution_
 
