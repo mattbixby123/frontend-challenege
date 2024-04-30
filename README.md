@@ -164,7 +164,7 @@ _This bug has 2 wrong behaviors that will be fixed with the same solution_
 
 # Bug 6: View more button not working as expected
 
-- [ ] Bug solved ?
+- [x] Bug solved ?
 
 _This bug has 2 wrong behaviors that can be fixed with the same solution. It's acceptable to fix with separate solutions as well._
 
