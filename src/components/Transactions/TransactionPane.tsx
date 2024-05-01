@@ -9,6 +9,21 @@ export const TransactionPane: TransactionPaneComponent = ({
 }) => {
   const [approved, setApproved] = useState(transaction.approved)
 
+  const handleApprovalChange = async (newValue: boolean) => {
+    try {
+      await consumerSetTransactionApproval({
+        transactionId: transaction.id,
+        newValue,
+      })
+      // Update local state only after the API call is successful
+      setApproved(newValue)
+    } catch (error) {
+      // Handle error if necessary
+      console.error('Error occurred while setting transaction approval:', error)
+    }
+  }
+
+
   return (
     <div className="RampPane">
       <div className="RampPane--content">
@@ -23,15 +38,7 @@ export const TransactionPane: TransactionPaneComponent = ({
         id={transaction.id}
         checked={approved}
         disabled={loading}
-        onChange={async (newValue) => {
-          await consumerSetTransactionApproval({
-            transactionId: transaction.id,
-            newValue,
-          })
-          console.log('Before update - approved:', approved);
-          setApproved(newValue)
-          console.log('After update - approved:', transaction.approved);
-        }}
+        onChange={handleApprovalChange}
       />
     </div>
   )

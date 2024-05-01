@@ -196,7 +196,7 @@ _This bug has 2 wrong behaviors that can be fixed with the same solution. It's a
 
 # Bug 7: Approving a transaction won't persist the new value
 
-- [ ] Bug solved ?
+- [x] Bug solved ?
 
 _You need to fix some of the previous bugs in order to reproduce_
 
