@@ -54,7 +54,7 @@ export function App() {
     }
   }, [employeeUtils.loading, employees, loadAllTransactions]);
   
-  console.log("Transactions:", transactions);
+  // console.log("Transactions:", transactions);
   return (
     <Fragment>
       <main className="MainContainer">
